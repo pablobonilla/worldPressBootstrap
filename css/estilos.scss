@@ -1,0 +1,16 @@
+/* =============================================
+1. Patrones de colores
+============================================= */
+
+$primary: #0073aa;
+$secondary: #23282d;
+$text: rgb(50, 55, 60);
+$success: pink;
+
+/* =============================================
+2. Modificando varibles de Bootstrap
+============================================= */
+
+$theme-colors: ( "primary": $primary, "secondary":$secondary);
+@import"../libs/bootstrap-4.4.1/scss/bootstrap";
+//Modificando el mapa de colores de Bootstrap
