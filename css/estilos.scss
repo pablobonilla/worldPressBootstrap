@@ -1,16 +1,193 @@
+.row>* {
+    //border: 1px solid red; 
+}
+
+
 /* =============================================
-1. Patrones de colores
-============================================= */
+  1. Patrones de colores
+  ============================================= */
 
 $primary: #0073aa;
 $secondary: #23282d;
-$text: rgb(50, 55, 60);
-$success: pink;
+$texto: rgb(50, 55, 60);
 
 /* =============================================
-2. Modificando varibles de Bootstrap
+  2. Modificando varibles de Bootstrap
+  ============================================= */
+
+//Modificando el mapa de colores de Bootstrap
+$theme-colors: ( "primary": $primary, "secondary": $secondary);
+//Personalizando la apariencia de Bootstrap
+$enable-shadows: true;
+$enable-gradients: true;
+$body-color: $texto;
+$link-color: $primary;
+$link-decoration: none;
+$link-hover-color: $primary;
+$link-hover-decoration: underline;
+$border-radius: 0.2rem;
+$border-radius-lg: 0.3rem;
+$font-family-base: "Open Sans",
+sans-serif;
+//Modificando las clases de espaciado de Bootstrap
+$spacer: 1rem;
+$spacers: ( 0: 0, 1: ( $spacer * 0.25), 2: ( $spacer * 0.5), 3: $spacer, 4: ( $spacer * 1.5), 5: ( $spacer * 3), 6: ( $spacer * 3.5), 7: ( $spacer * 4), 8: ( $spacer * 4.5), 9: ( $spacer * 5), 10: ( $spacer * 6));
+
+/* =============================================
+  3. Importando Bootstrap
+  ============================================= */
+
+@import "../libs/bootstrap-4.4.1/scss/bootstrap";
+
+/* =============================================
+  4. Estilos para el encabezado y Menu Rd-navbar
+  ============================================= */
+
+.bloque-buscar {
+    .form-control {
+        border: 0;
+        border-radius: 2px;
+        background: darken($secondary, 10%);
+        color: #ababab;
+        font-size: 0.9rem;
+        border-bottom: 1px solid lighten($secondary, 15%);
+    }
+    .btnBuscar {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: transparent;
+        border: 0;
+        color: #ababab;
+        padding: 0.3rem 0.5rem;
+    }
+}
+
+//4.1 Estilos Rd-navbar (Vista Movil)
+.rd-navbar-fixed .rd-panel-encabezado {
+    position: fixed;
+    width: 100%;
+    z-index: 16;
+}
+
+.rd-navbar-fixed .rd-navbar-toggle {
+    position: absolute;
+    top: 3.5rem;
+    left: 0.6rem;
+    background: transparent;
+    border: 0;
+    transform: scale(1.4);
+    padding: 0;
+}
+
+.rd-navbar-fixed .rd-navbar-toggle span:after,
+.rd-navbar-fixed .rd-navbar-toggle span:before,
+.rd-navbar-fixed .rd-navbar-toggle span {
+    background-color: #a7a7a7;
+}
+
+.rd-navbar-fixed .rd-navbar-nav-wrap {
+    background: $secondary;
+    top: 2rem;
+}
+
+.rd-navbar-fixed .rd-navbar-nav li>a {
+    display: block;
+    padding: 1rem 1rem 1rem 2rem;
+    color: #e2e2e2;
+}
+
+.rd-navbar-fixed .rd-navbar-nav li.opened>a,
+.rd-navbar-fixed .rd-navbar-nav li a:hover {
+    background: transparent;
+    text-decoration: none;
+    color: $primary;
+}
+
+.rd-navbar-fixed .rd-navbar-nav li.active>a {
+    color: $primary;
+    background: transparent;
+}
+
+.rd-navbar-fixed .rd-navbar-submenu li>a {
+    padding-left: 2.8rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+}
+
+.rd-navbar-fixed .rd-navbar-submenu-toggle:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f078";
+    font-size: 0.8rem;
+    transition: transform ease 0.2s;
+}
+
+.rd-navbar-fixed .rd-navbar-submenu-toggle:hover {
+    color: #fff;
+}
+
+.rd-navbar-fixed .opened .rd-navbar-submenu-toggle:before {
+    transform: rotate(180deg) translateY(50%);
+}
+
+//4.2 Estilos Rd-navbar (Vista Escritorio)
+.rd-navbar-static .rd-navbar-outer {
+    background: $secondary;
+}
+
+.rd-navbar-static .rd-navbar-nav>li>a {
+    display: block;
+    font-weight: normal;
+    font-size: 0.85rem;
+    line-height: 1.5rem;
+    padding: 0.8rem 0.5rem;
+    text-transform: capitalize;
+    color: #f1f1f1;
+    &:hover {
+        color: $primary;
+        text-decoration: none;
+    }
+}
+
+.rd-navbar-static .rd-navbar-nav>li>.rd-navbar-dropdown {
+    width: auto;
+    padding: 0;
+    left: 0%;
+    margin-top: 0;
+    margin-left: -5px;
+    transform: translateY(0);
+    background: lighten($secondary, 7%);
+}
+
+.rd-navbar-static .rd-navbar-nav>li>.rd-navbar-dropdown:before {
+    content: "";
+    background: lighten($secondary, 7%);
+    width: 0.8rem;
+    height: 0.8rem;
+    left: 25%;
+    position: absolute;
+    transform: rotate(45deg) translateY(-8px);
+}
+
+.rd-navbar-static .rd-navbar-dropdown li>a,
+.rd-navbar-static .rd-navbar-megamenu li>a {
+    color: #fff;
+    white-space: nowrap;
+}
+
+.rd-navbar-static .rd-navbar-dropdown li>a:hover,
+.rd-navbar-static .rd-navbar-megamenu li>a:hover {
+    color: $primary;
+    background: transparent;
+    text-decoration: none;
+}
+
+
+/* =============================================
+5. Estilos para seccion .descargaWordpress
 ============================================= */
 
-$theme-colors: ( "primary": $primary, "secondary":$secondary);
-@import"../libs/bootstrap-4.4.1/scss/bootstrap";
-//Modificando el mapa de colores de Bootstrap
+.descargawordpress {
+    padding: 9.5rem 0 1.5rem 0;
+}
